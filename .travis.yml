@@ -1,0 +1,18 @@
+language: java
+jdk: openjdk11
+ 
+
+install:
+- mvn -N io.takari:maven:wrapper
+- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+
+deploy:
+  provider: cloudfoundry
+  api: $CF_API_URL
+  username: $CF_USERNAME
+  password: $CF_PASSWORD
+  organization: $CF_ORG
+  space: $CF_SPACE
+  on:
+    all_branches: true
+

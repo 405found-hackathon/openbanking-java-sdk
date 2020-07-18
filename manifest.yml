@@ -1,0 +1,8 @@
+applications:
+  - name: openbanking-rbs
+    path: web/target/web-1.0-SNAPSHOT.jar
+    buildpack: java_buildpack
+    memory: 400M
+    disk_quota: 400M
+    env:
+      JAVA_OPTS: '-XX:MaxMetaspaceSize=80780K -Xss512k -Xmx200M -XX:ReservedCodeCacheSize=16M -XX:MaxDirectMemorySize=16M'
